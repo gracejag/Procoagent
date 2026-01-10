@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, Boolean
 from datetime import datetime
-
+from sqlalchemy.orm import relationship
 from ..database import Base
 
 
@@ -14,3 +14,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    businesses = relationship("Business", back_populates="owner")
