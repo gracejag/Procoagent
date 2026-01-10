@@ -1,12 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from .routers import auth, business  # Add business here
 
+# Create the app FIRST
 app = FastAPI(
     title="Revenue Agent API",
     description="Proco Revenue Diagnostics Agent - Backend API",
     version="0.1.0"
 )
 
+# Add middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -14,6 +17,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include routers AFTER app is created
+app.include_router(auth.router)
+app.include_router(business.router)  # Add this line
 
 
 @app.get("/health")
