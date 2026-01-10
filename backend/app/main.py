@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import auth, business  # Add business here
+from .routers import auth, business, transactions, analytics  # Updated this line
 
 # Create the app FIRST
 app = FastAPI(
@@ -20,7 +20,9 @@ app.add_middleware(
 
 # Include routers AFTER app is created
 app.include_router(auth.router)
-app.include_router(business.router)  # Add this line
+app.include_router(business.router)
+app.include_router(transactions.router)  # Added
+app.include_router(analytics.router)     # Added
 
 
 @app.get("/health")
