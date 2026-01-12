@@ -33,7 +33,7 @@ class TestAuthEndpoints:
     def test_register_endpoint_accepts_post(self):
         """Test register endpoint accepts POST requests."""
         response = client.post(
-            "/api/auth/register",
+            "/auth/register",
             json={
                 "email": "newuser@example.com",
                 "password": "testpassword123",
@@ -46,9 +46,9 @@ class TestAuthEndpoints:
     def test_login_endpoint_accepts_post(self):
         """Test login endpoint accepts POST requests."""
         response = client.post(
-            "/api/auth/login",
-            data={
-                "username": "test@example.com",
+            "/auth/login",
+            json={
+                "email": "test@example.com",
                 "password": "wrongpassword",
             },
         )
@@ -59,9 +59,9 @@ class TestAuthEndpoints:
 class TestBusinessEndpoints:
     """Test business endpoints."""
 
-    def test_businesses_endpoint_requires_auth(self):
-        """Test that businesses endpoint requires authentication."""
-        response = client.get("/api/businesses")
+    def test_business_endpoint_requires_auth(self):
+        """Test that business endpoint requires authentication."""
+        response = client.get("/business")
         # Should return 401 Unauthorized without token
         assert response.status_code == 401
 
