@@ -19,3 +19,4 @@ class Business(Base):
 
     # Relationship to user
     owner = relationship("User", back_populates="businesses")
+    transactions = relationship("Transaction", back_populates="business")
