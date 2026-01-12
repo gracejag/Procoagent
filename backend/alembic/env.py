@@ -68,4 +68,4 @@ else:
 
 In `backend/`, create a `.env` file with your Supabase pooler URL:
 ```
-DATABASE_URL=postgresql://postgres.txkastnzyvrgswddwdpq:Mt?BTc?MH4PH3LH@aws-0-us-west-2.pooler.supabase.com:5432/postgres
+DATABASE_URL="postgresql://postgres.txkastnzyvrgswddwdpq:Mt?BTc?MH4PH3LH@aws-0-us-west-2.pooler.supabase.com:5432/postgres"
