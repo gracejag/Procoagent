@@ -6,7 +6,7 @@ from alembic import context
 
 # Import your models and Base
 from app.database import Base
-from app.models import User, Business, Transaction  # This loads all models
+from app.models import User, Business, Transaction
 
 # this is the Alembic Config object
 config = context.config
@@ -60,12 +60,3 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
-```
-
----
-
-## Step 2: Create a `.env` file locally (if you don't have one)
-
-In `backend/`, create a `.env` file with your Supabase pooler URL:
-```
-DATABASE_URL="postgresql://postgres.txkastnzyvrgswddwdpq:Mt?BTc?MH4PH3LH@aws-0-us-west-2.pooler.supabase.com:6543/postgres"
