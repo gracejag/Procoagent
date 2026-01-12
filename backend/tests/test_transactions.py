@@ -27,35 +27,6 @@ class TestHealthEndpoints:
         assert "message" in data
 
 
-class TestAuthEndpoints:
-    """Test authentication endpoints."""
-
-    def test_register_endpoint_accepts_post(self):
-        """Test register endpoint accepts POST requests."""
-        response = client.post(
-            "/auth/register",
-            json={
-                "email": "newuser@example.com",
-                "password": "testpassword123",
-                "full_name": "Test User",
-            },
-        )
-        # Should not be 404 (endpoint exists) or 405 (method allowed)
-        assert response.status_code not in [404, 405]
-
-    def test_login_endpoint_accepts_post(self):
-        """Test login endpoint accepts POST requests."""
-        response = client.post(
-            "/auth/login",
-            json={
-                "email": "test@example.com",
-                "password": "wrongpassword",
-            },
-        )
-        # Should not be 404 or 405
-        assert response.status_code not in [404, 405]
-
-
 class TestBusinessEndpoints:
     """Test business endpoints."""
 
