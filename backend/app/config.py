@@ -4,7 +4,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/revenue_agent"
-    REDIS_URL: str = "redis://localhost:6379"
+    REDIS_URL: str = "redis://default:AZzPAAIncDJkZDM3MGYyNjZlOGQ0NjQ4OWZjZmE4NDc5Nzg5MGU4YXAyNDAxNDM@solid-donkey-40143.upstash.io:6379"
     SECRET_KEY: str = "your-secret-key-change-in-production"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
