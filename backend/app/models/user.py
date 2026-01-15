@@ -15,3 +15,4 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     businesses = relationship("Business", back_populates="owner")
+    notification_preferences = relationship("NotificationPreferences", back_populates="user", uselist=False)

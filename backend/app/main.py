@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import auth, business, transactions, analytics  # Updated this line
+from .routers import notifications
 
 # Create the app FIRST
 app = FastAPI(
@@ -23,6 +24,7 @@ app.include_router(auth.router)
 app.include_router(business.router)
 app.include_router(transactions.router)  # Added
 app.include_router(analytics.router)     # Added
+app.include_router(notifications.router)
 
 
 @app.get("/health")
